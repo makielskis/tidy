@@ -14,7 +14,6 @@ if(ANDROID)
   add_definitions(-DANDROID)
 endif()
 
-include_directories("include")
 set(SOURCES
   src/access.c
   src/alloc.c
@@ -42,3 +41,4 @@ set(SOURCES
 )
 
 add_library(tidy STATIC ${SOURCES})
+target_include_directories(tidy PUBLIC include)
