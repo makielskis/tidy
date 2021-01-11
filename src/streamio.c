@@ -597,12 +597,12 @@ StreamOut* TY_(UserOutput)( TidyDocImpl *doc, TidyOutputSink* sink, int encoding
 void TY_(WriteChar)( uint c, StreamOut* out )
 {
     /* Translate outgoing newlines */
-    if ( LF == c )
+    if ( TIDY_LF == c )
     {
       if ( out->nl == TidyCRLF )
-          TY_(WriteChar)( CR, out );
+          TY_(WriteChar)( TIDY_CR, out );
       else if ( out->nl == TidyCR )
-          c = CR;
+          c = TIDY_CR;
     }
 
     if (out->encoding == MACROMAN)
